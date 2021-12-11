@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { ProductTable } from './components/ProductTable'
 import { PromotionalRulesTable } from './components/PromotionalRulesTable'
+import { CheckoutTable, CheckoutScan } from './components/CheckoutTable';
 
 function App() {
 
@@ -22,6 +23,21 @@ const promotionRules = [
         <div>
           <PromotionalRulesTable rowData={promotionRules}/>
         </div>
+        <CheckoutScan productsList={[
+    {
+      name: "Curry Sauce",
+      price: 1.95,
+    },
+    {
+      name: "Pizza",
+      price: 5.99,
+    },
+    {
+      name: "Men’s T-Shirt ",
+      price: 25.00,
+    }
+  ]}/>
+        <CheckoutTable/>
       </div>
   );
 }
