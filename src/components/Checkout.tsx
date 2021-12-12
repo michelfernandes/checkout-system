@@ -3,21 +3,41 @@ import { Product } from '../App';
 
 interface CheckoutScanProps {
     products: Product[];
+    scannedProducts: Product[];
+    setScannedProducts: (products: Product[]) => void;
+    setTotalPrice: (price: number) => void;
 }
 
 export const CheckoutScan: React.FC<CheckoutScanProps> = ({
-    products
+    products,
+    scannedProducts,
+    setScannedProducts,
+    setTotalPrice
 }) => {
 
+  const [selected, setSelected] = React.useState(1);
+
   const handleScanClick = () => {
-    alert("scanned")
+    const newScannedProduct = products.find(t => t.id === selected);
+    setScannedProducts([...scannedProducts, newScannedProduct!]);
+    
+  }
+
+  React.useEffect(() => {
+    const total = scannedProducts.reduce((a,b) => { return a + b.price},0)
+    setTotalPrice(total);
+  },[scannedProducts,setTotalPrice])
+
+  const handleSelectionChange = (event) => {
+    const selectedId = event.target.value;
+    setSelected(Number(selectedId));
   }
 
   return (
     <div>
-    <select name="cars" id="productsSelectionList">
+    <select onChange={handleSelectionChange} name="products" id="productsSelectionList">
     {products.map((data) => (
-        <option value={data.name}>{data.name}</option>
+        <option value={data.id}>{data.name}</option>
     ))}
     </select>
     <button onClick={handleScanClick}>Scan</button>
@@ -26,14 +46,15 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
   );
 };
 
-export const CheckoutTable: React.FC = () => {
+interface CheckoutTableProps{
+  scannedProducts: Product[]
+  totalPrice: number
+}
 
-  const [totalPrice, setTotalPrice] = React.useState(0);
-  const [scannedProducts, setScannedProducts] = React.useState([{
-      product: "Pizza",
-      price: 5.50
-  }]);
-
+export const CheckoutTable: React.FC<CheckoutTableProps> = ({
+  scannedProducts,
+  totalPrice
+}) => {
   return (
     <>
     <div>
@@ -44,7 +65,7 @@ export const CheckoutTable: React.FC = () => {
         </tr>
       {scannedProducts.map((data) => (
         <tr>
-          <td>{data.product}</td>
+          <td>{data.name}</td>
           <td>{data.price}</td>
         </tr>
       ))}
