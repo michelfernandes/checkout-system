@@ -1,16 +1,12 @@
 import * as React from "react";
-
-type Product = {
-    name: string,
-    price: number
-}
+import { Product } from '../App';
 
 interface CheckoutScanProps {
-    productsList: Product[];
+    products: Product[];
 }
 
 export const CheckoutScan: React.FC<CheckoutScanProps> = ({
-    productsList
+    products
 }) => {
 
   const handleScanClick = () => {
@@ -20,7 +16,7 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
   return (
     <div>
     <select name="cars" id="productsSelectionList">
-    {productsList.map((data) => (
+    {products.map((data) => (
         <option value={data.name}>{data.name}</option>
     ))}
     </select>
@@ -29,8 +25,6 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
     
   );
 };
-
-
 
 export const CheckoutTable: React.FC = () => {
 

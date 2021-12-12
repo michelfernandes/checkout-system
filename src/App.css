@@ -16,6 +16,10 @@
   z-index: 1000;
 }
 
+.crud-table__row--sorter{
+  display: none !important;
+}
+
 .crud-modal-wrapper__modal {
   background-color: white;
   border-radius: 5px;

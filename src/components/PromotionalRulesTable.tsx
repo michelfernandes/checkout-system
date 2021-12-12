@@ -20,7 +20,7 @@ export const PromotionalRulesTable: React.FC<PromotionalRulesTableProps> = ({
     </tr>
     {rowData.map((data) => (
       <tr>
-        <td><input type="checkbox" checked={data.active}/></td>
+        <td><input type="checkbox" defaultChecked={data.active}/></td>
         <td>{data.rule}</td>
       </tr>
     ))}

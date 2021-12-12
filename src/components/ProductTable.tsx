@@ -1,89 +1,46 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
 import CRUDTable,
 {
   Fields,
   Field,
   CreateForm,
-  DeleteForm,
 } from "react-crud-table";
+import type { Product } from '../App'
 
+interface ProductTableProps {
+  products: Product[],
+  setProducts: (products: Product[]) => void
+}
 
-export let products = [
-    {
-      id: 1,
-      name: "Curry Sauce",
-      type: "Food",
-      price: 1.95,
+export const ProductTable: React.FC<ProductTableProps> = ({
+  products,
+  setProducts
+}) => {
+
+  let count = products.length;
+  const service = {
+    fetchItems: () => {
+      let result = Array.from(products);
+      return Promise.resolve(result);
     },
-    {
-      id: 2,
-      name: "Pizza",
-      type: "Food",
-      price: 5.99,
+    create: (product) => {
+      count += 1;
+      setProducts([...products,{...product,id:count}])
+      return Promise.resolve(product);
     },
-    {
-      id: 3,
-      name: "Men’s T-Shirt ",
-      type: "Clothing",
-      price: 25.00,
-    }
-  ];
+    delete: (data) => {
+      const product = products.find(t => t.id === data.id);
+      const filteredproducts = products.filter(t => t.id !== product!.id);
+      setProducts(filteredproducts);
+      return Promise.resolve(product);
+    },
+  };
 
-const SORTERS = {
-  NUMBER_ASCENDING: mapper => (a, b) => mapper(a) - mapper(b),
-  NUMBER_DESCENDING: mapper => (a, b) => mapper(b) - mapper(a),
-  STRING_ASCENDING: mapper => (a, b) => mapper(a).localeCompare(mapper(b)),
-  STRING_DESCENDING: mapper => (a, b) => mapper(b).localeCompare(mapper(a)),
-};
-
-const getSorter = (data) => {
-  const mapper = x => x[data.field];
-  let sorter = SORTERS.STRING_ASCENDING(mapper);
-
-  if (data.field === "id") {
-    sorter = data.direction === "ascending" ?
-      SORTERS.NUMBER_ASCENDING(mapper) : SORTERS.NUMBER_DESCENDING(mapper);
-  } else {
-    sorter = data.direction === "ascending" ?
-      SORTERS.STRING_ASCENDING(mapper) : SORTERS.STRING_DESCENDING(mapper);
-  }
-
-  return sorter;
-};
-
-
-let count = products.length;
-const service = {
-  fetchItems: (payload) => {
-    let result = Array.from(products);
-    result = result.sort(getSorter(payload.sort));
-    return Promise.resolve(result);
-  },
-  create: (product) => {
-    count += 1;
-    products.push({
-      ...product,
-      id: count,
-    });
-    return Promise.resolve(product);
-  },
-  delete: (data) => {
-    const product = products.find(t => t.id === data.id);
-    products = products.filter(t => t.id !== product!.id);
-    return Promise.resolve(product);
-  },
-};
-
-const styles = {
-  container: { margin: "auto", width: "fit-content" },
-};
-
-export const ProductTable = () => (
-  <div style={styles.container}>
+return(
+  <div>
     <CRUDTable
       caption="Products"
-      fetchItems={payload => service.fetchItems(payload)}
+      fetchItems={() => service.fetchItems()}
     >
       <Fields>
         <Field
@@ -95,7 +52,6 @@ export const ProductTable = () => (
         <Field
           name="name"
           label="Name"
-          placeholder="Name"
         />
         <Field
           name="type"
@@ -104,7 +60,7 @@ export const ProductTable = () => (
         <Field
           name="price"
           label="Price"
-          placeholder="Price"
+          type="number"
         />
       </Fields>
       <CreateForm
@@ -113,33 +69,8 @@ export const ProductTable = () => (
         trigger="Create product"
         onSubmit={product => service.create(product)}
         submitText="Create"
-        validate={(values) => {
-          const errors = {};
-          if (!values.title) {
-            //errors.title = "Please, provide product\"s title";
-          }
-
-          if (!values.description) {
-            //errors.description = "Please, provide product\"s description";
-          }
-
-          return errors;
-        }}
-      />
-      <DeleteForm
-        title="Product Deletion"
-        message="Are you sure you want to delete the product?"
-        trigger="Delete"
-        onSubmit={product => service.delete(product)}
-        submitText="Delete"
-        validate={(values) => {
-          const errors = {};
-          if (!values.id) {
-            //errors.id = "Please, provide id";
-          }
-          return errors;
-        }}
       />
     </CRUDTable>
   </div>
 );
+      }
