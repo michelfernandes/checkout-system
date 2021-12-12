@@ -29,7 +29,7 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
 
   React.useEffect(() => {
     setTotalPrice(checkoutService.totalPrice);
-  },[scannedProducts,setTotalPrice,checkoutService.totalPrice])
+  },[scannedProducts,setTotalPrice])
 
   const handleSelectionChange = (event) => {
     const selectedId = event.target.value;
@@ -37,14 +37,19 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
   }
 
   return (
-    <div>
-    <select onChange={handleSelectionChange} name="products" id="productsSelectionList">
-    {products.map((data) => (
+    <>
+      <div className="section-caption">
+        <span>Checkout</span>
+      </div>
+      <div>
+      <select onChange={handleSelectionChange} className="product-selection" name="products" id="productsSelectionList">
+      {products.map((data) => (
         <option value={data.id}>{data.name}</option>
-    ))}
-    </select>
-    <button onClick={handleScanClick}>Scan</button>
-    </div>
+        ))}
+      </select>
+      <button className="crud-button" onClick={handleScanClick}>Scan</button>
+      </div>
+    </>
     
   );
 };
@@ -61,20 +66,20 @@ export const CheckoutTable: React.FC<CheckoutTableProps> = ({
   return (
     <>
     <div>
-      <table>
+      <table className="crud-table" >
         <tr>
-          <th>Product</th>
-          <th>Price</th>
+          <th className="crud-table__header-cell">Product</th>
+          <th className="crud-table__header-cell">Price</th>
         </tr>
       {scannedProducts.map((data) => (
         <tr>
-          <td>{data.name}</td>
-          <td>{data.price}</td>
+          <td className="crud-table__cell">{data.name}</td>
+          <td className="crud-table__cell">{data.price}</td>
         </tr>
       ))}
       </table>
     </div>
-    <div>
+    <div className="section-caption">
         Total price: {totalPrice}
     </div>
     </>

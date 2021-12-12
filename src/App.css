@@ -141,6 +141,7 @@
   border: 1px solid rgba(52, 145, 238, 0.15);
   border-collapse: collapse;
   box-shadow: 2px 2px 5px 0 #c7c7c7;
+  width: 100%;
 }
 .crud-table__row {
 }
@@ -171,7 +172,11 @@
   display: none;
 }
 
-.crud-table__caption {
+.crud-table__caption{
+  display: none;
+}
+
+.section-caption{
   background-color: white;
   padding: 0.8rem;
   margin: 1rem 0;
@@ -327,4 +332,19 @@
     width: 100%;
     margin-bottom: 0;
   }
+}
+
+.section-container{
+  width: 33%;
+  margin: 20px;
+}
+
+.product-selection{
+  min-height: 1rem;
+  border-radius: 3px;
+  padding: 0.6rem 1rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 15px;
 }

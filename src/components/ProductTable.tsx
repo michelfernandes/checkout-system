@@ -37,7 +37,10 @@ export const ProductTable: React.FC<ProductTableProps> = ({
   };
 
 return(
-  <div>
+  <>
+  <div className="section-caption">
+    <span>Products</span>
+  </div>
     <CRUDTable
       caption="Products"
       fetchItems={() => service.fetchItems()}
@@ -71,6 +74,6 @@ return(
         submitText="Create"
       />
     </CRUDTable>
-  </div>
+  </>
 );
       }

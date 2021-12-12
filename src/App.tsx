@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import { ProductTable } from './components/ProductTable';
-import { PromotionalRulesTable } from './components/PromotionalRulesTable';
+import { PromotionalRulesList } from './components/PromotionalRulesList';
 import { CheckoutTable, CheckoutScan } from './components/Checkout';
 
 export type Product = {
@@ -44,13 +44,13 @@ function App() {
         <h2>Checkout System</h2>
       </div>
       <div style={{display: 'flex'}}>
-        <div style={{width:'33%'}}>
+        <div className="section-container">
           <ProductTable products={products} setProducts={setProducts}/>
         </div>
-        <div style={{width:'33%'}}>
-            <PromotionalRulesTable/>
+        <div className="section-container">
+            <PromotionalRulesList/>
         </div>
-        <div style={{width:'33%'}}>
+        <div className="section-container">
           <CheckoutScan products={products} scannedProducts={scannedProducts} setScannedProducts={setScannedProducts} setTotalPrice={setTotalPrice}/>
           <CheckoutTable scannedProducts={scannedProducts} totalPrice={totalPrice} />
         </div>
