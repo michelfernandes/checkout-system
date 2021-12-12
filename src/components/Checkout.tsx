@@ -44,7 +44,7 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
       <div>
       <select onChange={handleSelectionChange} className="product-selection" name="products" id="productsSelectionList">
       {products.map((data) => (
-        <option value={data.id}>{data.name}</option>
+        <option key={data.id} value={data.id}>{data.name}</option>
         ))}
       </select>
       <button className="crud-button" onClick={handleScanClick}>Scan</button>

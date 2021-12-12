@@ -19,8 +19,8 @@ export const PromotionalRulesList: React.FC = () => {
       <span>Promotional Rules</span>
     </div>
     <ul>
-    {promotionRules.map((data) => (
-        <li>{data.rule}</li>
+    {promotionRules.map((data,index) => (
+        <li key={index}>{data.rule}</li>
     ))}
     
   </ul>

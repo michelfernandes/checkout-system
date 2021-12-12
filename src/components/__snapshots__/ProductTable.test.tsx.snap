@@ -1,0 +1,472 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match Product Table snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="section-caption"
+      >
+        <span>
+          Products
+        </span>
+      </div>
+      <div>
+        <div>
+          <button
+            class="crud-button crud-button--positive crud-button--modal-trigger"
+          >
+            Create product
+          </button>
+          <div
+            class="crud-modal-wrapper"
+            style="display: none;"
+          >
+            <div
+              class="crud-modal-wrapper__background"
+            />
+            <div
+              class="crud-modal-wrapper__modal"
+            >
+              <button
+                class="crud-button crud-button--circular crud-button--close"
+              >
+                X
+              </button>
+              <h3
+                class="crud-modal-wrapper__title"
+              >
+                Create a new product!
+              </h3>
+              <div>
+                <form
+                  class="crud-modal-form"
+                >
+                  
+                  <div
+                    class="crud-modal-form__field-container"
+                  >
+                    <label
+                      class="crud-modal-form__label"
+                      for="name"
+                    >
+                      Name
+                    </label>
+                    <input
+                      name="name"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="crud-modal-form__field-container"
+                  >
+                    <label
+                      class="crud-modal-form__label"
+                      for="type"
+                    >
+                      Type
+                    </label>
+                    <input
+                      name="type"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="crud-modal-form__field-container"
+                  >
+                    <label
+                      class="crud-modal-form__label"
+                      for="price"
+                    >
+                      Price
+                    </label>
+                    <input
+                      name="price"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                  <button
+                    class="crud-button crud-button--positive"
+                    type="submit"
+                  >
+                    Create
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="crud-table__caption"
+        >
+          Products
+        </div>
+        <table
+          class="crud-table"
+        >
+          <thead
+            class="crud-table__header"
+          >
+            <tr
+              class="crud-table__row crud-table__row--fields"
+            >
+              <th
+                class="crud-table__header-cell"
+              >
+                Id
+                 
+                <span>
+                  ▼
+                </span>
+              </th>
+              <th
+                class="crud-table__header-cell"
+              >
+                Name
+                 
+              </th>
+              <th
+                class="crud-table__header-cell"
+              >
+                Type
+                 
+              </th>
+              <th
+                class="crud-table__header-cell"
+              >
+                Price
+                 
+              </th>
+              
+            </tr>
+            <tr
+              class="crud-table__row crud-table__row--sorter"
+            >
+              <th
+                class="crud-table__header-cell"
+                colspan="4"
+              >
+                Sort by: 
+                <br />
+                <select
+                  class="crud-table__select"
+                >
+                  <option
+                    value=""
+                  >
+                    Select field
+                  </option>
+                  <option
+                    value="id"
+                  >
+                    Id
+                  </option>
+                  <option
+                    value="name"
+                  >
+                    Name
+                  </option>
+                  <option
+                    value="type"
+                  >
+                    Type
+                  </option>
+                  <option
+                    value="price"
+                  >
+                    Price
+                  </option>
+                </select>
+                 
+                <select
+                  class="crud-table__select"
+                >
+                  <option
+                    value=""
+                  >
+                    Select direction
+                  </option>
+                  <option
+                    value="descending"
+                  >
+                    descending
+                  </option>
+                  <option
+                    value="ascending"
+                  >
+                    ascending
+                  </option>
+                </select>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="crud-table__body"
+          />
+        </table>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="section-caption"
+    >
+      <span>
+        Products
+      </span>
+    </div>
+    <div>
+      <div>
+        <button
+          class="crud-button crud-button--positive crud-button--modal-trigger"
+        >
+          Create product
+        </button>
+        <div
+          class="crud-modal-wrapper"
+          style="display: none;"
+        >
+          <div
+            class="crud-modal-wrapper__background"
+          />
+          <div
+            class="crud-modal-wrapper__modal"
+          >
+            <button
+              class="crud-button crud-button--circular crud-button--close"
+            >
+              X
+            </button>
+            <h3
+              class="crud-modal-wrapper__title"
+            >
+              Create a new product!
+            </h3>
+            <div>
+              <form
+                class="crud-modal-form"
+              >
+                
+                <div
+                  class="crud-modal-form__field-container"
+                >
+                  <label
+                    class="crud-modal-form__label"
+                    for="name"
+                  >
+                    Name
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="crud-modal-form__field-container"
+                >
+                  <label
+                    class="crud-modal-form__label"
+                    for="type"
+                  >
+                    Type
+                  </label>
+                  <input
+                    name="type"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="crud-modal-form__field-container"
+                >
+                  <label
+                    class="crud-modal-form__label"
+                    for="price"
+                  >
+                    Price
+                  </label>
+                  <input
+                    name="price"
+                    type="number"
+                    value=""
+                  />
+                </div>
+                <button
+                  class="crud-button crud-button--positive"
+                  type="submit"
+                >
+                  Create
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="crud-table__caption"
+      >
+        Products
+      </div>
+      <table
+        class="crud-table"
+      >
+        <thead
+          class="crud-table__header"
+        >
+          <tr
+            class="crud-table__row crud-table__row--fields"
+          >
+            <th
+              class="crud-table__header-cell"
+            >
+              Id
+               
+              <span>
+                ▼
+              </span>
+            </th>
+            <th
+              class="crud-table__header-cell"
+            >
+              Name
+               
+            </th>
+            <th
+              class="crud-table__header-cell"
+            >
+              Type
+               
+            </th>
+            <th
+              class="crud-table__header-cell"
+            >
+              Price
+               
+            </th>
+            
+          </tr>
+          <tr
+            class="crud-table__row crud-table__row--sorter"
+          >
+            <th
+              class="crud-table__header-cell"
+              colspan="4"
+            >
+              Sort by: 
+              <br />
+              <select
+                class="crud-table__select"
+              >
+                <option
+                  value=""
+                >
+                  Select field
+                </option>
+                <option
+                  value="id"
+                >
+                  Id
+                </option>
+                <option
+                  value="name"
+                >
+                  Name
+                </option>
+                <option
+                  value="type"
+                >
+                  Type
+                </option>
+                <option
+                  value="price"
+                >
+                  Price
+                </option>
+              </select>
+               
+              <select
+                class="crud-table__select"
+              >
+                <option
+                  value=""
+                >
+                  Select direction
+                </option>
+                <option
+                  value="descending"
+                >
+                  descending
+                </option>
+                <option
+                  value="ascending"
+                >
+                  ascending
+                </option>
+              </select>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="crud-table__body"
+        />
+      </table>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
