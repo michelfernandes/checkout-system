@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Checkout System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an interactive Checkout System built with `ReactJS` and `Typescript`.
+
+![image](https://user-images.githubusercontent.com/18291046/145731779-90dd720f-09c3-4263-b267-f7b4075b8924.png)
+
+## Installation
+
+To install the project, you can run:
+
+### `npm install`
+
 
 ## Available Scripts
 
@@ -19,28 +28,42 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Documentation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application was built as sections and placed on the screen on 3 different columns:
 
-### `npm run eject`
+- **Product Table**: The table that holds the available products for the Checkout section to use.
+- **Promotional Rules**: The current Promotional Rules being applied.
+- **Checkout**: Section that allows the user to scan the the available products and applies the promotional rules to the final price.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Checkout Service
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The checkout service class is responsible to scan new items and maintain the total price of the scanned products. It receives the list of promotional rules on its constructor.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Promotional Rules
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Each promotional rule is a separate TS class that implements the `Rule` interface.
 
-## Learn More
+To create a new promotional rule, you need to:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Create a new class that implements the `Rule` interface;
+2. Implement the `apply()` method, that should receive the list of scanned products and return the discount applied to the list;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Tests
+
+There are 2 different test approachs being used:
+- The promotional rules and the checkout service are being tested with usual unit tests for its methods;
+- The react components are being tested with snapshots assertions;
+
+## Possible Future Enhancements
+
+These are a few possible future improvments for the project:
+
+- Extract types and interfaces to dedicated files;
+- Make use of React useContext hook, to avoid multiple properties being passed between components;
+- Increase tests coverage to cover all application logic;
+- Always deal with number with maximum 2 decimal places;
