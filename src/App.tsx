@@ -38,17 +38,6 @@ function App() {
   const [totalPrice, setTotalPrice] = React.useState(0);
   const [scannedProducts, setScannedProducts] = React.useState<Product[]>([]);
 
-  const promotionRules = [
-    {
-      active: true,
-      rule: "If you buy 3 pizza, one is free"
-    },
-    {
-      active: false,
-      rule: "If you spend over 30EUR you get 10% off the total price"
-    }
-  ]
-
   return (
     <>
       <div style={{textAlign: 'center'}}>
@@ -59,7 +48,7 @@ function App() {
           <ProductTable products={products} setProducts={setProducts}/>
         </div>
         <div style={{width:'33%'}}>
-            <PromotionalRulesTable rowData={promotionRules}/>
+            <PromotionalRulesTable/>
         </div>
         <div style={{width:'33%'}}>
           <CheckoutScan products={products} scannedProducts={scannedProducts} setScannedProducts={setScannedProducts} setTotalPrice={setTotalPrice}/>

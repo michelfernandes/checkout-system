@@ -1,16 +1,17 @@
 import * as React from "react";
 
-type PromotionRule = {
-    active: boolean,
-    rule: string
-}
+export const PromotionalRulesTable: React.FC = () => {
 
-export interface PromotionalRulesTableProps {
-  rowData: PromotionRule[];
-}
-export const PromotionalRulesTable: React.FC<PromotionalRulesTableProps> = ({
-    rowData,
-}) => {
+  const promotionRules = [
+    {
+      active: true,
+      rule: "If you buy 2 or more pizzas, the price for each drops to €3.99"
+    },
+    {
+      active: true,
+      rule: "If you buy 2 or more Clothing type products, you get €5.00 discount"
+    }
+  ]
 
   return (
     <table>
@@ -18,7 +19,7 @@ export const PromotionalRulesTable: React.FC<PromotionalRulesTableProps> = ({
       <th>Active</th>
       <th>Promotional Rule</th>
     </tr>
-    {rowData.map((data) => (
+    {promotionRules.map((data) => (
       <tr>
         <td><input type="checkbox" defaultChecked={data.active}/></td>
         <td>{data.rule}</td>

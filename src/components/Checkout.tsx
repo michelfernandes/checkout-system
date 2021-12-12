@@ -1,6 +1,10 @@
 import * as React from "react";
 import { Product } from '../App';
+import { CheckoutService } from "../service/CheckoutService";
+import { PizzaPriceRule } from "../rules/PizzaPriceRule";
+import { ClothingDiscountRule } from "../rules/ClothingDiscountRule";
 
+const checkoutService = new CheckoutService([new PizzaPriceRule(),new ClothingDiscountRule()]);
 interface CheckoutScanProps {
     products: Product[];
     scannedProducts: Product[];
@@ -19,14 +23,13 @@ export const CheckoutScan: React.FC<CheckoutScanProps> = ({
 
   const handleScanClick = () => {
     const newScannedProduct = products.find(t => t.id === selected);
+    checkoutService.scan(newScannedProduct!);
     setScannedProducts([...scannedProducts, newScannedProduct!]);
-    
   }
 
   React.useEffect(() => {
-    const total = scannedProducts.reduce((a,b) => { return a + b.price},0)
-    setTotalPrice(total);
-  },[scannedProducts,setTotalPrice])
+    setTotalPrice(checkoutService.totalPrice);
+  },[scannedProducts,setTotalPrice,checkoutService.totalPrice])
 
   const handleSelectionChange = (event) => {
     const selectedId = event.target.value;
